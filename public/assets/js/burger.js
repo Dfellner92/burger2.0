@@ -5,7 +5,7 @@ $(document).ready(function () {
         type: "GET"
     }).then(function (data) {
 
-        var burgers = data.burgers;
+        var burgers = data.burger_data;
         var len = burgers.length;
 
         for (var i = 0; i < len; i++) {
@@ -31,6 +31,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var burger_id = $(this).data("id");
+        
 
         $.ajax({
             method: "PUT",
@@ -64,7 +65,8 @@ $(document).ready(function () {
         event.preventDefault();
 
         var newBurger = {
-            burger_name: $("#burger_name").val().trim()
+            burger_name: $("#burger_name").val().trim(),
+            devoured: false,
         };
 
         // Send the POST request.
